@@ -42,18 +42,18 @@
 </body>
 
 <script>
-    Array.prototype.sample = function(){
-        return this[Math.floor(Math.random()*this.length)];
-    };
-    var exemples = [
-        "Charente Stone",
-        "Viggo Mortenseine-Maritime",
-        "Ariège Dombasle",
-        "John Travoltarn",
-        "Jack Nicholsomme",
-        "Cantal Lauby"
-    ];
-    var departements = [
+Array.prototype.sample = function(){
+    return this[Math.floor(Math.random()*this.length)];
+};
+var exemples = [
+    "Charente Stone",
+    "Viggo Mortenseine-Maritime",
+    "Ariège Dombasle",
+    "John Travoltarn",
+    "Jack Nicholsomme",
+    "Cantal Lauby"
+];
+var departements = [
 {
 "num_dep": "01",
 "dep_name": "Ain",
@@ -562,28 +562,28 @@
 ];
 
 window.onload = function() {
-for (var i=0; i < departements.length; i++) {
-    let departement = departements[i];
+    for (var i=0; i < departements.length; i++) {
+        let departement = departements[i];
 
-    let option = document.createElement("option");
-    option.setAttribute("value", departement["num_dep"])
-    option.innerText = departement["dep_name"];
+        let option = document.createElement("option");
+        option.setAttribute("value", departement["num_dep"])
+        option.innerText = departement["dep_name"];
 
-    $("#dpt").append(option);
-}
+        $("#dpt").append(option);
+    }
 
-$("#example").text("Exemple: " + exemples.sample());
+    $("#example").text("Exemple: " + exemples.sample());
 
-$("#formulaire").submit(function(e) {
+    $("#formulaire").submit(function(e) {
 
-    let url = $("#url").val();
-    let dpt = $("#dpt").val();
-    
-    let img = $("img");
-    img.attr("src", "/overlay?dpt=" + dpt + "&url=" + encodeURI(url));
+        let url = $("#url").val();
+        let dpt = $("#dpt").val();
+        
+        let img = $("img");
+        img.attr("src", "/overlay?dpt=" + dpt + "&url=" + encodeURI(url));
 
-    return false;
-});
+        return false;
+    });
 };
 </script>
 </html>
