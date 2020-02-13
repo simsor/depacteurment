@@ -28,6 +28,7 @@ func handleOverlay(w http.ResponseWriter, r *http.Request) {
 
 	imgURL := params.Get("url")
 	dptNum := params.Get("dpt")
+	txt := params.Get("txt")
 
 	if imgURL == "" {
 		bye(w, "Missing url")
@@ -48,7 +49,7 @@ func handleOverlay(w http.ResponseWriter, r *http.Request) {
 	defer resp.Body.Close()
 
 	w.Header().Set("Content-Type", "image/png")
-	err = overlayPipe(resp.Body, dptNum, w)
+	err = overlayPipe(resp.Body, dptNum, txt, w)
 
 	if err != nil {
 		bye(w, "Error overlaying")

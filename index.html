@@ -30,6 +30,10 @@
                     <select id="dpt" class="form-control">
                     </select>
                 </div>
+                <div class="form-group">
+                    <label for="txt">Explication de la blague</label>
+                    <input class="form-control" type="text" id="txt" />
+                </div>
 
                 <input type="submit" value="C'est parti !" class="btn btn-success" />
             </form>
@@ -578,9 +582,10 @@ window.onload = function() {
 
         let url = $("#url").val();
         let dpt = $("#dpt").val();
+        let txt = $("#txt").val();
         
         let img = $("img");
-        img.attr("src", "/overlay?dpt=" + dpt + "&url=" + encodeURI(url));
+        img.attr("src", "/overlay?dpt=" + dpt + "&url=" + encodeURI(url) + "&txt=" + encodeURI(txt));
 
         return false;
     });
