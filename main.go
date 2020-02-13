@@ -51,6 +51,12 @@ func handleOverlay(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "image/png")
 	err = overlayPipe(resp.Body, dptNum, txt, w)
 
+	log.Printf("%s %s", dptNum, imgURL)
+
+	if txt != "" {
+		log.Printf("Txt: %s", txt)
+	}
+
 	if err != nil {
 		bye(w, "Error overlaying")
 		log.Printf("Error overlaying: %s\nError: %s\n", imgURL, err)
